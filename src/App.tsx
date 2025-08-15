@@ -164,7 +164,7 @@ function App() {
   const [selectedAmount, setSelectedAmount] = useState('');
   const [renewableOnly, setRenewableOnly] = useState(false);
   const [toasterVisible, setToasterVisible] = useState(false);
-  const [savedScholarships, setSavedScholarships] = useState<Scholarship[]>([]);
+  const [, setSavedScholarships] = useState<Scholarship[]>([]);
 
   const filteredScholarships = scholarships.filter(scholarship => {
     const matchesSearch = scholarship.title.toLowerCase().includes(searchTerm.toLowerCase()) ||

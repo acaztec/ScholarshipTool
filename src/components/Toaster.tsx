@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { X, Clock } from 'lucide-react';
 import './Toaster.css';
 

@@ -3,6 +3,7 @@ import Header from './components/Header';
 import ScholarshipGrid from './components/ScholarshipGrid';
 import FilterSidebar from './components/FilterSidebar';
 import Footer from './components/Footer';
+import Toaster from './components/Toaster';
 import './App.css';
 
 export interface Scholarship {
@@ -161,6 +162,8 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState('');
   const [selectedAmount, setSelectedAmount] = useState('');
   const [renewableOnly, setRenewableOnly] = useState(false);
+  const [toasterVisible, setToasterVisible] = useState(false);
+  const [savedScholarships, setSavedScholarships] = useState<Scholarship[]>([]);
 
   const filteredScholarships = scholarships.filter(scholarship => {
     const matchesSearch = scholarship.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -183,6 +186,29 @@ function App() {
     return matchesSearch && matchesCategory && matchesAmount && matchesRenewable;
   });
 
+  const handleSaveScholarship = (scholarship: Scholarship) => {
+    setSavedScholarships(prev => {
+      if (!prev.find(s => s.id === scholarship.id)) {
+        return [...prev, scholarship];
+      }
+      return prev;
+    });
+  };
+
+  // Check for scholarships closing today
+  const today = new Date().toDateString();
+  const closingToday = scholarships.some(scholarship => {
+    const deadlineDate = new Date(scholarship.deadline).toDateString();
+    return deadlineDate === today;
+  });
+
+  // Show toaster if there are scholarships closing today
+  React.useEffect(() => {
+    if (closingToday) {
+      setToasterVisible(true);
+    }
+  }, [closingToday]);
+
   return (
     <div className="App">
       <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
@@ -196,10 +222,19 @@ function App() {
             renewableOnly={renewableOnly}
             onRenewableChange={setRenewableOnly}
           />
-          <ScholarshipGrid scholarships={filteredScholarships} />
+          <ScholarshipGrid 
+            scholarships={filteredScholarships} 
+            onSaveScholarship={handleSaveScholarship}
+          />
         </div>
       </main>
       <Footer />
+      <Toaster
+        message="Some scholarships are closing today! Don't miss the deadline."
+        type="warning"
+        isVisible={toasterVisible}
+        onClose={() => setToasterVisible(false)}
+      />
     </div>
   );
 }

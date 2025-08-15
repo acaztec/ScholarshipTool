@@ -1,0 +1,98 @@
+.toaster {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  min-width: 300px;
+  max-width: 500px;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+.toaster-visible {
+  transform: translateX(0);
+}
+
+.toaster-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.toaster-icon {
+  flex-shrink: 0;
+}
+
+.toaster-message {
+  flex: 1;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.toaster-close {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  transition: background-color 0.2s;
+  flex-shrink: 0;
+}
+
+.toaster-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.toaster-info {
+  background: #eff6ff;
+  border: 1px solid #bfdbfe;
+  color: #1e40af;
+}
+
+.toaster-info .toaster-close {
+  color: #1e40af;
+}
+
+.toaster-warning {
+  background: #fffbeb;
+  border: 1px solid #fed7aa;
+  color: #92400e;
+}
+
+.toaster-warning .toaster-close {
+  color: #92400e;
+}
+
+.toaster-success {
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  color: #166534;
+}
+
+.toaster-success .toaster-close {
+  color: #166534;
+}
+
+.toaster-error {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #dc2626;
+}
+
+.toaster-error .toaster-close {
+  color: #dc2626;
+}
+
+@media (max-width: 768px) {
+  .toaster {
+    top: 0.5rem;
+    right: 0.5rem;
+    left: 0.5rem;
+    min-width: auto;
+    max-width: none;
+  }
+}

@@ -5,9 +5,10 @@ import './ScholarshipGrid.css';
 
 interface ScholarshipGridProps {
   scholarships: Scholarship[];
+  onSaveScholarship: (scholarship: Scholarship) => void;
 }
 
-const ScholarshipGrid: React.FC<ScholarshipGridProps> = ({ scholarships }) => {
+const ScholarshipGrid: React.FC<ScholarshipGridProps> = ({ scholarships, onSaveScholarship }) => {
   return (
     <div className="scholarship-grid">
       <div className="grid-header">
@@ -32,7 +33,7 @@ const ScholarshipGrid: React.FC<ScholarshipGridProps> = ({ scholarships }) => {
       ) : (
         <div className="grid">
           {scholarships.map(scholarship => (
-            <ScholarshipCard key={scholarship.id} scholarship={scholarship} />
+            <ScholarshipCard key={scholarship.id} scholarship={scholarship} onSave={onSaveScholarship} />
           ))}
         </div>
       )}

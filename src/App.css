@@ -1,31 +1,27 @@
 .App {
   min-height: 100vh;
-  background: #f8f9fa;
+  display: flex;
+  flex-direction: column;
 }
 
 .main-content {
-  padding: 40px 0;
+  flex: 1;
+  padding: 2rem 0;
+  background: #f9fafb;
 }
 
-.container {
+.content-wrapper {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
-}
-
-.content-layout {
+  padding: 0 1rem;
   display: flex;
-  gap: 30px;
+  gap: 2rem;
   align-items: flex-start;
 }
 
 @media (max-width: 1024px) {
-  .content-layout {
+  .content-wrapper {
     flex-direction: column;
-    gap: 20px;
-  }
-  
-  .main-content {
-    padding: 20px 0;
+    gap: 0;
   }
 }

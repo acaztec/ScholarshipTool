@@ -1,5 +1,5 @@
 import React from 'react';
-import { Filter, X } from 'lucide-react';
+import { Filter, X, ChevronDown } from 'lucide-react';
 import './FilterSidebar.css';
 
 interface FilterSidebarProps {
@@ -19,17 +19,6 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
   renewableOnly,
   onRenewableChange,
 }) => {
-  const categories = [
-    'Merit-Based',
-    'Need-Based',
-    'Field-Specific',
-    'Demographic',
-    'Athletic',
-    'Service',
-    'International',
-    'Transfer'
-  ];
-
   const clearAllFilters = () => {
     onCategoryChange('');
     onAmountChange('');
@@ -43,7 +32,7 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
       <div className="sidebar-header">
         <div className="sidebar-title">
           <Filter size={20} />
-          <h3>Filter Scholarships</h3>
+          <h3>Refine by:</h3>
         </div>
         {hasActiveFilters && (
           <button className="clear-filters" onClick={clearAllFilters}>
@@ -54,35 +43,109 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
       </div>
 
       <div className="filter-section">
-        <h4 className="filter-title">Category</h4>
+        <h4 className="filter-title">Month</h4>
         <div className="filter-options">
           <label className="filter-option">
-            <input
-              type="radio"
-              name="category"
-              value=""
-              checked={selectedCategory === ''}
-              onChange={(e) => onCategoryChange(e.target.value)}
-            />
-            <span className="filter-label">All Categories</span>
+            <input type="checkbox" />
+            <span className="filter-label">Application Deadline Month</span>
           </label>
-          {categories.map(category => (
-            <label key={category} className="filter-option">
-              <input
-                type="radio"
-                name="category"
-                value={category}
-                checked={selectedCategory === category}
-                onChange={(e) => onCategoryChange(e.target.value)}
-              />
-              <span className="filter-label">{category}</span>
-            </label>
-          ))}
         </div>
       </div>
 
       <div className="filter-section">
-        <h4 className="filter-title">Award Amount</h4>
+        <h4 className="filter-title">Education</h4>
+        <div className="filter-options">
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">School Type</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Grade</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Full-time/Part-time</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Field of Study</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4 className="filter-title">GPA</h4>
+        <div className="filter-options">
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">3.5 and above</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">3.0 - 3.4</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">2.5 - 2.9</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Below 2.5</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4 className="filter-title">Eligibility</h4>
+        <div className="filter-options">
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Citizenship</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">State</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Race & Ethnicity</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Athletics & Extracurriculars</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Military</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Ability</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Miscellaneous</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4 className="filter-title">Requirements</h4>
+        <div className="filter-options">
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Achievement & Need</span>
+          </label>
+          <label className="filter-option">
+            <input type="checkbox" />
+            <span className="filter-label">Application Requirements</span>
+          </label>
+        </div>
+      </div>
+
+      <div className="filter-section">
+        <h4 className="filter-title">Amount</h4>
         <div className="filter-options">
           <label className="filter-option">
             <input
@@ -123,20 +186,6 @@ const FilterSidebar: React.FC<FilterSidebarProps> = ({
               onChange={(e) => onAmountChange(e.target.value)}
             />
             <span className="filter-label">Over $20,000</span>
-          </label>
-        </div>
-      </div>
-
-      <div className="filter-section">
-        <h4 className="filter-title">Additional Options</h4>
-        <div className="filter-options">
-          <label className="filter-option checkbox-option">
-            <input
-              type="checkbox"
-              checked={renewableOnly}
-              onChange={(e) => onRenewableChange(e.target.checked)}
-            />
-            <span className="filter-label">Renewable Only</span>
           </label>
         </div>
       </div>

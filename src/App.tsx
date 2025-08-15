@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Header from './components/Header';
 import ScholarshipGrid from './components/ScholarshipGrid';
 import FilterSidebar from './components/FilterSidebar';
+import TipsSidebar from './components/TipsSidebar';
 import Footer from './components/Footer';
 import Toaster from './components/Toaster';
 import './App.css';
@@ -226,6 +227,7 @@ function App() {
             scholarships={filteredScholarships} 
             onSaveScholarship={handleSaveScholarship}
           />
+          <TipsSidebar />
         </div>
       </main>
       <Footer />

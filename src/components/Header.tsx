@@ -1,84 +1,50 @@
 import React from 'react';
-import { Search, Menu, User, Bell } from 'lucide-react';
+import { Search } from 'lucide-react';
 import './Header.css';
 
-interface HeaderProps {
-  searchTerm: string;
-  onSearchChange: (term: string) => void;
-}
-
-const Header: React.FC<HeaderProps> = ({ searchTerm, onSearchChange }) => {
+const Header: React.FC = () => {
   return (
-    <header className="header">
-      <div className="header-top">
+    <>
+      <div className="testing-banner">
+        This is a testing environment - not for external use
+        <div className="header-right">
+          <select className="language-select">
+            <option>English</option>
+          </select>
+          <span className="expert-chat">Expert Chat</span>
+        </div>
+      </div>
+      <header className="header">
         <div className="container">
-          <div className="header-top-content">
-            <div className="university-info">
-              <h1 className="university-name">Bluefield University</h1>
-              <span className="tagline">Excellence in Education</span>
+          <div className="header-content">
+            <div className="logo-section">
+              <div className="university-logo">
+                <div className="logo-icon">
+                  <div className="building-icon">
+                    <div className="columns">
+                      <div className="column"></div>
+                      <div className="column"></div>
+                      <div className="column"></div>
+                    </div>
+                    <div className="roof"></div>
+                  </div>
+                </div>
+                <div className="university-text">
+                  <div className="university-name">BENJAMIN</div>
+                  <div className="university-name">FRANKLIN</div>
+                  <div className="university-subtitle">UNIVERSITY</div>
+                </div>
+              </div>
             </div>
             <div className="header-actions">
-              <button className="icon-button">
-                <Bell size={20} />
-              </button>
-              <button className="icon-button">
-                <User size={20} />
-              </button>
-              <button className="menu-button">
-                <Menu size={20} />
-              </button>
+              <Search className="search-icon" size={24} />
+              <button className="login-btn">Log In</button>
+              <button className="signup-btn">Sign Up</button>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="header-main">
-        <div className="container">
-          <nav className="main-nav">
-            <ul className="nav-links">
-              <li><a href="#" className="nav-link">Home</a></li>
-              <li><a href="#" className="nav-link">Admissions</a></li>
-              <li><a href="#" className="nav-link active">Financial Aid</a></li>
-              <li><a href="#" className="nav-link">Academics</a></li>
-              <li><a href="#" className="nav-link">Student Life</a></li>
-              <li><a href="#" className="nav-link">About</a></li>
-            </ul>
-          </nav>
-        </div>
-      </div>
-
-      <div className="header-bottom">
-        <div className="container">
-          <div className="breadcrumb">
-            <span>Home</span>
-            <span className="separator">›</span>
-            <span>Financial Aid</span>
-            <span className="separator">›</span>
-            <span className="current">Scholarships</span>
-          </div>
-          
-          <div className="page-header">
-            <h2 className="page-title">Available Scholarships</h2>
-            <p className="page-description">
-              Discover scholarship opportunities to help fund your education at Bluefield University
-            </p>
-          </div>
-
-          <div className="search-section">
-            <div className="search-container">
-              <Search className="search-icon" size={20} />
-              <input
-                type="text"
-                placeholder="Search scholarships by name or description..."
-                value={searchTerm}
-                onChange={(e) => onSearchChange(e.target.value)}
-                className="search-input"
-              />
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+      </header>
+    </>
   );
 };
 

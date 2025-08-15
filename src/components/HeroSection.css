@@ -1,9 +1,20 @@
 .hero-section {
-  background: #2c3e50;
+  background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
   color: white;
-  padding: 40px 0 60px;
+  padding: 60px 0 80px;
   position: relative;
   overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+  opacity: 0.3;
 }
 
 .hero-content {
@@ -20,19 +31,19 @@
 }
 
 .hero-title {
-  font-size: 36px;
+  font-size: 48px;
   font-weight: 300;
   margin: 0 0 20px 0;
   line-height: 1.2;
 }
 
 .highlight {
-  color: #ff6b6b;
+  color: #e74c3c;
   font-weight: 400;
 }
 
 .hero-description {
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.6;
   margin: 0;
   opacity: 0.9;
@@ -41,6 +52,7 @@
 .promise-link {
   color: white;
   text-decoration: underline;
+  margin-left: 5px;
 }
 
 .promise-link:hover {
@@ -52,18 +64,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  max-width: 300px;
+  max-width: 400px;
 }
 
 .graduation-illustration {
   position: relative;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 300px;
 }
 
 .circle-bg {
-  width: 200px;
-  height: 200px;
+  width: 250px;
+  height: 250px;
   background: rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   position: relative;
@@ -77,14 +89,14 @@
 
 .graduation-cap {
   position: absolute;
-  top: 50px;
+  top: 60px;
   left: 50%;
   transform: translateX(-50%);
 }
 
 .cap-top {
-  width: 50px;
-  height: 35px;
+  width: 60px;
+  height: 40px;
   background: #2c3e50;
   border-radius: 30px 30px 0 0;
   position: relative;
@@ -95,7 +107,7 @@
   position: absolute;
   top: -8px;
   left: -10px;
-  width: 70px;
+  width: 80px;
   height: 8px;
   background: #34495e;
   border-radius: 4px;
@@ -123,13 +135,13 @@
 
 .money-stack {
   position: absolute;
-  bottom: 70px;
-  right: 50px;
+  bottom: 80px;
+  right: 60px;
 }
 
 .bill {
-  width: 35px;
-  height: 18px;
+  width: 40px;
+  height: 20px;
   background: #27ae60;
   margin-bottom: 2px;
   border-radius: 2px;
@@ -143,19 +155,19 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
 }
 
 .coins {
   position: absolute;
-  bottom: 50px;
-  left: 40px;
+  bottom: 60px;
+  left: 50px;
 }
 
 .coin {
-  width: 22px;
-  height: 22px;
+  width: 25px;
+  height: 25px;
   background: #f39c12;
   border-radius: 50%;
   margin-bottom: 5px;
@@ -169,7 +181,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bold;
 }
 
@@ -186,7 +198,7 @@
   position: relative;
   display: block;
   width: calc(100% + 1.3px);
-  height: 40px;
+  height: 60px;
 }
 
 @media (max-width: 768px) {
@@ -197,20 +209,20 @@
   }
   
   .hero-title {
-    font-size: 28px;
+    font-size: 36px;
   }
   
   .hero-description {
-    font-size: 14px;
+    font-size: 16px;
   }
   
   .graduation-illustration {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
   }
   
   .circle-bg {
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
   }
 }

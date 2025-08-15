@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import HeroSection from './components/HeroSection';
-import Sidebar from './components/Sidebar';
 import ScholarshipSearch from './components/ScholarshipSearch';
+import Sidebar from './components/Sidebar';
 import './App.css';
 
 export interface Scholarship {
